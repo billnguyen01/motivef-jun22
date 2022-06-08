@@ -1,0 +1,179 @@
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.qki.settings</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="6"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="QuickBooks Settings" string="QuickBooks Settings" data-key="quickbooks">
+                        <h2>QuickBooks Settings</h2>
+                        <div class="row mt16 o_settings_container">
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_api_url"/>
+                                    <div class="text-muted">
+                                        QuickBooks Api Url
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_api_url" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_client_id"/>
+                                    <div class="text-muted">
+                                        QuickBooks Api Client ID
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_client_id" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_client_secret"/>
+                                    <div class="text-muted">
+                                        QuickBooks Api Client Secret
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_client_secret" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_redirect_url"/>
+                                    <div class="text-muted">
+                                        Redirect Url (Copy to setting in QuickBooks Redirect Url)
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_redirect_url" class="o_light_label" attrs="{'readonly': 1}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_environment"/>
+                                    <div class="text-muted">
+                                        QuickBooks Environment
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_environment" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_income_account"/>
+                                    <div class="text-muted">
+                                        Default QuickBooks income account
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_income_account" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_expense_account"/>
+                                    <div class="text-muted">
+                                        Default QuickBooks expense account
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_expense_account" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_asset_account"/>
+                                    <div class="text-muted">
+                                        Default QuickBooks asset account
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_asset_account" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_webhook_token"/>
+                                    <div class="text-muted">
+                                        QuickBooks Verify Token
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_webhook_token" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-12 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="qk_access_token"/>
+                                    <div class="text-muted">
+                                        Access Token
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <field name="qk_access_token" class="o_light_label" attrs="{'readonly': 1}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-12 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                        <div class="mt16">
+                                            <button name="button_login_quickbooks"
+                                                    string="QuickBooks Login"
+                                                    type="object"
+                                                    attrs="{'invisible': ['|','|', '|',('qk_client_id', '=', ''),('qk_client_id', '=', None),('qk_client_secret', '=', None),('qk_client_secret', '=', None)]}"
+                                                    class="oe_highlight"/>
+                                            <button name="button_refresh_quickbooks"
+                                                    string="Refresh Token"
+                                                    type="object"
+                                                    attrs="{'invisible': ['|','|', '|',('qk_client_id', '=', ''),('qk_client_id', '=', None),('qk_client_secret', '=', None),('qk_client_secret', '=', None)]}"
+                                                    class="oe_highlight"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
