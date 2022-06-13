@@ -20,7 +20,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
                     {
                         text: _t("Ok"), classes: 'btn btn-primary',
                         click() {
-                            return this._super.apply(this, arguments);
+                            return self._super.apply(this, arguments);
                         },
                         close: true
                     }, {
