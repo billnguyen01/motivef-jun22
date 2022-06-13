@@ -17,7 +17,7 @@ if company type equals Company then compare name else company type with Individu
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Customizations',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
@@ -28,8 +28,8 @@ if company type equals Company then compare name else company type with Individu
         'views/views.xml'
     ],
     'assets': {
-       'web.assets_backend': [
-           'abk_contact_warning/static/src/js/custom_form_view.js'
-       ],
+       # 'web.assets_backend': [
+       #     'abk_contact_warning/static/src/js/custom_form_view.js'
+       # ],
     },
 }
