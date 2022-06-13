@@ -11,6 +11,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
     var ContactFormController = FormController.extend({
         saveRecord: function () {
             var self = this;
+            var _super = this._super.bind(this);
             var _t = core._t;
 
             console.log(this, arguments)
@@ -18,16 +19,17 @@ odoo.define('custom_form_view.contact_form', function (require) {
             if (arguments.override && arguments.override == true) {
                 return this._super.apply(this, arguments);
             } else {
-                new Dialog(self, {
+                new Dialog(this, {
                     title: _t("Warning"),
                     $content: $('<div/>') .append($('<p/>', {text: _t("Duplicate Contact")})),
                     buttons: [
                         {
-                            text: _t("Ok"), classes: 'btn btn-primary',
+                            text: _t("Ok"),
+                            classes: 'btn btn-primary',
                             click: function() {
                                 this.close();
                                 arguments.override = true;
-                                return self._super.apply(self, arguments);
+                                return _super.apply(self, arguments);
                             },
                             close: true
                         }, {
