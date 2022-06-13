@@ -6,11 +6,11 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="/form" position="attributes">
                     <attribute name="create">false</attribute>
                     <attribute name="delete">false</attribute>
                     <attribute name="js_class">res_partner_form</attribute>
-                </form>
+                </xpath>
             </field>
         </record>
     </data>

@@ -25,7 +25,7 @@ if company type equals Company then compare name else company type with Individu
 
     # always loaded
     'data': [
-        # 'views/views.xml'
+        'views/views.xml'
     ],
     'assets': {
        'web.assets_backend': [
