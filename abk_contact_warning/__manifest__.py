@@ -21,12 +21,15 @@ if company type equals Company then compare name else company type with Individu
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'contacts', "web"],
+    'depends': ['base', 'contacts', 'web'],
 
     # always loaded
     'data': [
-        "views/templates.xml",
-        "security/ir.model.access.csv",
-        "wizard/sh_message_wizard.xml",
+        'views/views.xml'
     ],
+    'assets': {
+       'web.assets_backend': [
+           'abk_contact_warning/static/src/js/custom_form_view.js'
+       ],
+    },
 }
