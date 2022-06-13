@@ -13,27 +13,32 @@ odoo.define('custom_form_view.contact_form', function (require) {
             var self = this;
             var _t = core._t;
 
-            return new Dialog(self, {
-                title: _t("Warning"),
-                $content: $('<div/>') .append($('<p/>', {text: _t("Duplicate Contact")})),
-                buttons: [
-                    {
-                        text: _t("Ok"), classes: 'btn btn-primary',
-                        click: function() {
-                            this.close();
-                            return self._super.apply(self, arguments);
-                        },
-                        close: true
-                    }, {
-                        text: _t('Cancel'),
-                        click: function() {
-                            this.close();
-                            return Promise.reject("SaveRecord: this.canBeSave is false");
-                        },
-                        close: true
-                    }
-                ]
-            }).open();
+            console.log(this, arguments)
+
+            if (arguments.override && arguments.override == true) {
+                return this._super.apply(this, arguments);
+            } else {
+                new Dialog(self, {
+                    title: _t("Warning"),
+                    $content: $('<div/>') .append($('<p/>', {text: _t("Duplicate Contact")})),
+                    buttons: [
+                        {
+                            text: _t("Ok"), classes: 'btn btn-primary',
+                            click: function() {
+                                this.close();
+                                arguments.override = true;
+                                return self._super.apply(self, arguments);
+                            },
+                            close: true
+                        }, {
+                            text: _t('Cancel'),
+                            close: true
+                        }
+                    ]
+                }).open();
+
+                return Promise.reject("SaveRecord: waiting for check duplicate");
+            }
         },
     });
 
