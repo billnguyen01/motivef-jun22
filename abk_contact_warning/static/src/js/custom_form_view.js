@@ -9,25 +9,29 @@ odoo.define('custom_form_view.contact_form', function (require) {
     var core = require('web.core');
 
     var ContactFormController = FormController.extend({
-            saveRecord: function () {
-                var self = this;
-                var _t = core._t;
-                var res = this._super.apply(this, arguments);
+        saveRecord: function () {
+            var self = this;
+            var _t = core._t;
 
-                new Dialog(null, {
+            new Dialog(this, {
                 title: _t("Warning"),
                 $content: $('<div/>') .append($('<p/>', {text: _t("Duplicate Contact")})),
-                buttons: [{
-                    text: _t("Ok"), classes: 'btn btn-primary',
-                    click() {
-                        console.log(self);
-                        return res;
-                    },
-                    close: true
-                }, { text: _t('Cancel'), close: true }]
-                }).open();
-                return Promise.reject("SaveRecord: this.canBeSave is false");
-            },
+                buttons: [
+                    {
+                        text: _t("Ok"), classes: 'btn btn-primary',
+                        click() {
+                            return this._super.apply(this, arguments);
+                        },
+                        close: true
+                    }, {
+                        text: _t('Cancel'),
+                        close: true
+                    }
+                ]
+            }).open();
+
+            return Promise.reject("SaveRecord: this.canBeSave is false");
+        },
     });
 
 //    var FormAlertRenderer = FormRenderer.extend({
