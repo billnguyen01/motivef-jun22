@@ -23,7 +23,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
                         classes: 'btn btn-primary',
                         click: function() {
                             this.close();
-                            return _super.saveRecord.bind(self, recordID, options);
+                            return _super.saveRecord(recordID, options);
                         },
                         close: true
                     }, {
