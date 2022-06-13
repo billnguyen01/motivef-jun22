@@ -13,34 +13,32 @@ odoo.define('custom_form_view.contact_form', function (require) {
             var self = this;
             var _t = core._t;
 
-            new Dialog(this, {
+            return new Dialog(self, {
                 title: _t("Warning"),
                 $content: $('<div/>') .append($('<p/>', {text: _t("Duplicate Contact")})),
                 buttons: [
                     {
                         text: _t("Ok"), classes: 'btn btn-primary',
-                        click() {
-                            return self._super.apply(this, arguments);
+                        click: function() {
+                            this.close();
+                            return self._super.apply(self, arguments);
                         },
                         close: true
                     }, {
                         text: _t('Cancel'),
+                        click: function() {
+                            this.close();
+                            return Promise.reject("SaveRecord: this.canBeSave is false");
+                        },
                         close: true
                     }
                 ]
             }).open();
-
-            return Promise.reject("SaveRecord: this.canBeSave is false");
         },
     });
 
-//    var FormAlertRenderer = FormRenderer.extend({
-//        displayContactAlert: function () {},
-//      });
-
     var ContactFormView = FormView.extend({
         config: _.extend({}, FormView.prototype.config, {
-//            Renderer: FormAlertRenderer,
             Controller: ContactFormController,
         }),
     });
