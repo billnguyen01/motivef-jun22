@@ -28,8 +28,8 @@ if company type equals Company then compare name else company type with Individu
         'views/views.xml'
     ],
     'assets': {
-       # 'web.assets_backend': [
-       #     'abk_contact_warning/static/src/js/custom_form_view.js'
-       # ],
+       'web.assets_backend': [
+           'abk_contact_warning/static/src/js/custom_form_view.js'
+       ],
     },
 }
