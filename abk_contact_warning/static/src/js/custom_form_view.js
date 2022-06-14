@@ -12,7 +12,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
             var _super = this._super.bind(this);
             var _t = core._t;
 
-            console.log(this, recordID, options);
+            console.log(this, this.mode, recordID, options);
 
             var name = $('input[name="name"]').val().trim();
             if (!name) {
@@ -24,7 +24,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
 
             rpc.query({
                 model: 'res.partner',
-                method: 'search_read',
+                method: 'search',
                 args: [domain]
             }).then(function (contacts) {
                 console.log(contacts);
