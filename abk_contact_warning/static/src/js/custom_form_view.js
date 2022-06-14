@@ -12,7 +12,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
             var _super = this._super.bind(this);
             var _t = core._t;
 
-            console.log(this, this.handle);
+            console.log(this, this.handle, this.model.get(this.handle));
 
             var name = $('input[name="name"]').val().trim();
             if (!name) {
