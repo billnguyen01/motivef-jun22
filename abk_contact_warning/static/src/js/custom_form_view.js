@@ -17,13 +17,12 @@ odoo.define('custom_form_view.contact_form', function (require) {
             var name = $('input[name="name"]').val();
             var rpc = require('web.rpc');
             var domain = [('name', '=', name)];
-            var args = [domain];
 
             console.log(options);
             var res = rpc.query({
                 model: 'res.partner',
-                method: 'search_read',
-                args: args
+                method: 'search',
+                args: [domain]
             }).then(function (partners) {
                 console.log(partners);
             });
