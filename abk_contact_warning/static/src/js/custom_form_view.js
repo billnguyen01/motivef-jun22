@@ -12,7 +12,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
             var _super = this._super.bind(this);
             var _t = core._t;
 
-            console.log(recordID);
+            console.log(this, recordID, options);
 
             var name = $('input[name="name"]').val().trim();
             if (!name) {
@@ -53,6 +53,8 @@ odoo.define('custom_form_view.contact_form', function (require) {
 
                 return _super(recordID, options);
             });
+
+            return Promise.reject("SaveRecord: waiting for check duplicate");
         },
     });
 
