@@ -17,13 +17,24 @@ odoo.define('custom_form_view.contact_form', function (require) {
                 return this._super.apply(this, arguments);
             }
 
-            var name = $('input[name="name"]').val().trim();
-            if (!name) {
-                return this._super.apply(this, arguments);
-            }
+            var company_type = $('input[type="radio"][checked=true]').attr('data-value');
 
-            var rpc = require('web.rpc');
-            var domain = [['name', '=', name]];
+            if (company_type == 'company'){
+                var name = $('input[name="name"]').val();
+                console.log('1-company');
+                if (!name) {
+                console.log('3')
+                    return this._super.apply(this, arguments);
+                }
+                domain = [['name', '=', name]];
+            } else {
+                var email = $('input[name="email"]').val();
+                console.log('2-person');
+                if (!email) {
+                    return this._super.apply(this, arguments);
+                }
+                domain = [['email', '=', email]];
+            }
 
             rpc.query({
                 model: 'res.partner',
