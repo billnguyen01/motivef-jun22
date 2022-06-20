@@ -18,7 +18,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
             }
 
             var company_type = $('input[type="radio"][checked=true]').attr('data-value');
-            domain = [];
+            var domain = [];
             if (company_type == 'company'){
                 var name = $('input[name="name"]').val();
                 console.log('1-company');
