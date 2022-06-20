@@ -6,6 +6,7 @@ odoo.define('custom_form_view.contact_form', function (require) {
     var FormView = require('web.FormView');
     var Dialog = require('web.Dialog');
     var core = require('web.core');
+    var rpc = require('web.rpc');
 
     var ContactFormController = FormController.extend({
         saveRecord: function (recordID, options) {
