@@ -355,7 +355,7 @@ class UP5OdooQuickBooks(models.Model):
             elif invoice.Balance <= 0:
                 state = 'paid'
 
-            o_inv.write({'state': state})
+            o_inv.write({'payment_state': state})
 
     def update_o_invoice(self, data):
         _logger.info(data)
